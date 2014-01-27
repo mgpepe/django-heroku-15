@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-# from GrabaDjangoBS.settings import LANGUAGES
 import re
 
 class ResourceForm(forms.Form):
