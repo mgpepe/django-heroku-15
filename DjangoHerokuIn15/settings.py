@@ -90,7 +90,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-AUTHENTICATION_BACKENDS = ('DjMainApp.backends.EmailAuthBackend',)
+AUTHENTICATION_BACKENDS = ('DjangoHerokuIn15.backends.EmailAuthBackend',)
 
 
 # HEROKU
