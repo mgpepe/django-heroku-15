@@ -41,4 +41,8 @@ SECRET KEY change.
 
 MULTIPLE HEROKU ACCOUNTS & KEYS all instructions
 
+Local db:
 python manage.py syncdb
+
+heroku db:
+heroku run python manage.py syncdb
