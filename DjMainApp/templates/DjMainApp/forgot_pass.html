@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{%  block title %} Password Recovery ||{% endblock %}
+
+{% block body %}
+
+
+<div class="container" style="margin-top: 100px; margin-bottom: 100px;">
+	<div class="row">
+		<div class="col-md-6">
+
+			{% if not success %}
+				<form action="#" method="post" class="form-horizontal">
+					{% csrf_token %}
+					{{ form.non_field_errors }}
+					<div class="form-group">
+						<label for="id_email" class="col-sm-3 control-label">Email</label>
+						<div class="col-sm-9">
+							{{ form.email.errors }}
+							<input type="text" name="email" id="id_email" placeholder="Email" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="id_email" class="col-sm-3 control-label"></label>
+						<div class="col-sm-9">
+							<input type="submit" value="Reset Password" class="btn btn-primary" >
+						</div>
+					</div>
+				</form>
+				{% else %}
+					<h3>Your new password was sent to {{email}}. Check your email and <a href="{% url 'login' %}">login</a> again.  </h3>
+				{% endif %}
+
+		</div>
+	</div>
+</div>
+
+
+{% if not debug %}<script>
+	mixpanel.track('Forgot Pass Page');
+</script>{% endif %}
+{% endblock %}

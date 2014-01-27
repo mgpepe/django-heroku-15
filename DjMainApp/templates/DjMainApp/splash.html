@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to GetPMF{% endblock %}
+
+
+
+{% block body %}
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-9">
+			<div class="jumbotron" style="background-color: transparent;">
+				<h1>Ultimate Guide to <br/> Product Market Fit</h1>
+				<p>Learn how to get PMF, what resources you should read,<br/> what specific steps to take.  </p>
+				<p>
+					<a href="{% url 'signup' %}" class="btn btn-primary btn-lg" role="button">Signup Free</a>
+					<!-- <a class="btn btn-lg" role="button">Learn more</a> -->
+				</p>
+			</div>
+			
+		</div>
+		<div class="col-md-3">
+			<img src="/static/img/sun.png" style="margin-top: 50px;"/>
+		</div>
+	</div>
+	<div class="row lblue row-lp" >
+		<div class="col-md-4 col-md-offset-1" style="">
+			<h1>University Module</h1>
+			<p>Get access to constantly updated <br/>list of the most valuable articles, books, tools.</p>
+		</div>
+		<div class="col-md-2">
+			<img src="/static/img/hat.png" style="width: 200px;"/>
+		</div>
+	</div>
+	
+	<div class="row row-lp ">
+		<div class="col-md-3 col-md-offset-1">
+			<img src="/static/img/bmc.png" style="width: 200px;"/>
+		</div>
+		<div class="col-md-5 " style="">
+			<h1>Business Model Canvas </h1>
+			<p>A startup is not just the site but all the parts of a business. <br/>Learn what are the best tools to plan, and how to use them.</p>
+		</div>
+	</div>
+	
+	<div class="row row-lp lblue">
+		<div class="col-md-4 col-md-offset-1" style="">
+			<h1>Problem Module</h1>
+			<p>To get a successful startup, you need to be solving a real problem. <br/>Learn how to search for a problem and evaluate it when you have found one.</p>
+		</div>
+		<div class="col-md-2">
+			<img src="/static/img/problem.png" style="width: 150px;"/>
+		</div>
+	</div>
+
+	<div class="row row-lp ">
+		<div class="col-md-3 col-md-offset-1">
+			<img src="/static/img/box.png" style="width: 200px;"/>
+		</div>
+		<div class="col-md-5 " style="">
+			<h1>Solution Module </h1>
+			<p>When you have confirmed you have a problem, you need a solution that satisfies it. Learn how to explore different solutions and chose the one that does the job best.</p>
+		</div>
+	</div>
+		
+	<div class="row row-lp lblue">
+		<div class="col-md-4 col-md-offset-1" style="">
+			<h1>Metrics Module</h1>
+			<p>Once you launch your product, you need to track closely the results. Find out what are the top-industry tools, how to integrate them, and how to read the data they provide.</p>
+		</div>
+		<div class="col-md-2">
+			<img src="/static/img/stats.png" style="width: 300px;"/>
+		</div>
+	</div>
+
+
+	<div class="row row-lp ">
+		<div class="col-md-3 col-md-offset-1">
+			<img src="/static/img/money.png" style="width: 200px;"/>
+		</div>
+		<div class="col-md-5 " style="">
+			<h1>Evaluate And What's Next </h1>
+			<p>Get automated information on what should be continued and what should be abandoned. If you have achieved PMF, we will show your PMF report card to some investors and help you get in touch with them.</p>
+		</div>
+	</div>
+
+
+
+</div> <!-- container -->
+
+
+{% if not debug %}<script>
+	mixpanel.track('Splash Page');
+</script>{% endif %}
+{% endblock %}

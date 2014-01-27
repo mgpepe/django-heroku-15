@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to {% endblock %}
+
+
+
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			
+			<div class="alert alert-warning">
+				<h1>Dear {{user.first_name}}, </h1>
+				A successful business is a complex machine that needs all parts working. Essentially when all components are in place and everything flows it is said you have achieved <b>Product/Market Fit</b>. Let's step you up through the process now:
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="media">
+				<a class="pull-left" href="#">
+					<img class="media-object" src="/static/img/hat.png" alt="PMF University" style="width: 100px;">
+				</a>
+				<span class="pull-right" href="#">
+					<a href="{% url 'links' %}">
+				<button type="button" class="btn btn-primary btn-lg">
+					Go <span class="glyphicon glyphicon-circle-arrow-right"></span>
+				</button>
+			</a>
+				</span>
+				<div class="media-body">
+					<h4 class="media-heading">Step 1: PMF University</h4>
+					First you need to get to know that animal.
+				</div>
+			</div>
+			<div class="media">
+				<a class="pull-left" href="#">
+					<img class="media-object" src="/static/img/bmc.png" alt="PMF University" style="width: 100px;">
+				</a>
+				<span class="pull-right" href="#">
+				<button type="button" class="btn btn-default  " disabled="disabled">
+					<span class="glyphicon glyphicon-lock"></span> Locked
+				</button>
+				</span>
+				<div class="media-body">
+					<h4 class="media-heading">Step 2: Business Model Canvas</h4>
+					Plan your business, not your product.
+				</div>
+			</div>
+			<div class="media">
+				<a class="pull-left" href="#">
+					<img class="media-object" src="/static/img/problem-media.png" alt="PMF University" style="width: 100px;">
+				</a>
+				<span class="pull-right" href="#">
+				<button type="button" class="btn btn-default  " disabled="disabled">
+					<span class="glyphicon glyphicon-lock"></span> Locked
+				</button>
+				</span>
+				<div class="media-body">
+					<h4 class="media-heading">Step 3: Problem Interviews</h4>
+					Search and evaluate a real problem.
+				</div>
+			</div>
+			<div class="media">
+				<a class="pull-left" href="#">
+					<img class="media-object" src="/static/img/box-media.png" alt="PMF University" style="width: 100px;">
+				</a>
+				<span class="pull-right" href="#">
+				<button type="button" class="btn btn-default  " disabled="disabled">
+					<span class="glyphicon glyphicon-lock"></span> Locked
+				</button>
+				</span>
+				<div class="media-body">
+					<h4 class="media-heading">Step 4: Solutions Interviews</h4>
+					Evaluate customers' reactions to understand if a solution is good.
+				</div>
+			</div>
+			<div class="media">
+				<a class="pull-left" href="#">
+					<img class="media-object" src="/static/img/stats.png" alt="PMF University" style="width: 100px;">
+				</a>
+				<span class="pull-right" href="#">
+				<button type="button" class="btn btn-default  " disabled="disabled">
+					<span class="glyphicon glyphicon-lock"></span> Locked
+				</button>
+				</span>
+				<div class="media-body">
+					<h4 class="media-heading">Step 5: Build &amp; Integrate Metrics</h4>
+					Build fast, with iterations, and measure results. 
+				</div>
+			</div>
+			<div class="media">
+				<a class="pull-left" href="#">
+					<img class="media-object" src="/static/img/money.png" alt="PMF University" style="width: 100px;">
+				</a>
+				<span class="pull-right" href="#">
+				<button type="button" class="btn btn-default  " disabled="disabled">
+					<span class="glyphicon glyphicon-lock"></span> Locked
+				</button>
+				</span>
+				<div class="media-body">
+					<h4 class="media-heading">Step 6: Learn The Truth</h4>
+					Understand what you have discovered and know where to go from there. 
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+
+</div> <!-- container -->
+
+{% if not debug %}<script>
+	mixpanel.track('Dashboard Page');
+</script>{% endif %}
+{% endblock %}

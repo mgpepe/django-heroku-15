@@ -1,0 +1,47 @@
+body {
+  background-color: #d1efff;
+}
+#body {
+  min-height: 500px;
+}
+.lblue {
+  background-color: #e0f5ff;
+}
+.row.row-lp {
+  padding: 50px 0;
+}
+.green-check {
+  background: url('../img/checks-read.png') no-repeat 0 0;
+  width: 24px;
+  height: 24px;
+  margin-top: 5px;
+}
+.green-check.green-check-off {
+  background: url('../img/checks-read.png') no-repeat 0 -24px;
+}
+.p-link-clarification {
+  font-size: 16px;
+  color: #666;
+  margin-top: -5px;
+}
+.p-book-author {
+  color: #666;
+  margin-top: -5px;
+}
+.stars-rating {
+  background: url('../img/star-ratings2.png') no-repeat 0 0;
+  width: 100px;
+  height: 21px;
+  margin-top: 6px;
+  display: none;
+  cursor: pointer;
+}
+.media.myrow {
+  margin: 0px;
+}
+.myrow {
+  padding: 5px;
+}
+.myrow.alternate-row {
+  background-color: rgba(255, 255, 255, 0.5);
+}

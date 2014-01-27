@@ -1,0 +1,64 @@
+{% extends "index_regular.html" %}
+{% load i18n %}
+
+
+{%  block title %}{% trans 'Successful Logout' %} ||{% endblock %}
+
+
+
+
+{% block body %}
+
+
+<div class="row-fluid">
+	<div  class="span12 ">
+		<div class="h-row">
+			<span class="h-row-title">{% trans 'Successful Logout' %} </span>
+		</div>
+
+		<div class="profile-info blue-sidebar">
+ 			{% trans 'You have successfully logged out.' %} <a href="{% url login %}">{% trans 'Login' %}</a>?
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

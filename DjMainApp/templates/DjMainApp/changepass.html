@@ -1,0 +1,76 @@
+{% extends "index_regular.html" %}
+
+
+
+
+{% block title %} {% trans 'Change Password' %} -{% endblock %}
+
+ 
+
+
+{% block body %}
+
+
+<div class="row-fluid">
+	<div  class="span12 ">
+		<div class="h-row">
+			<span class="h-row-title">{% trans 'Change Your Password' %} </span>
+		</div>
+		<div class="profile-info blue-sidebar">
+			{% if not success %}
+				<form method="post" action="">
+					{{ form.non_fdield_errors }}
+					{{ form.new_pass.errors }}
+					<input type="password" name="new_pass" placeholder="{% trans 'New Password' %}" style=""><br/>
+					{{ form.new_pass2.errors }}
+					<input type="password" name="new_pass2" placeholder="{% trans 'Repeat Password' %}" style=""><br/>
+					<input type="submit" value="{% trans 'Change Password' %}" class="btn btn-primary" style="">
+				</form>
+			{% else%}
+				{% trans 'Your password has been successfully changed.' %} 
+				{% trans 'You can go back to your profile' %} <a href="{% url profile %}">{% trans 'here' %}</a>. <br/>
+				{% trans 'Or check out your favorites' %} <a href="{% url favorites %}">{% trans 'favorites' %}</a>.
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
