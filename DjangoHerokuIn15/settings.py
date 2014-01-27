@@ -90,7 +90,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-AUTHENTICATION_BACKENDS = ('PROJECT_NAME.backends.EmailAuthBackend',)
+AUTHENTICATION_BACKENDS = ('DjMainApp.backends.EmailAuthBackend',)
 
 
 # HEROKU
