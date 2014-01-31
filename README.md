@@ -1,5 +1,5 @@
-django-heroku-15
-================
+Blank Django Project on Heroku in 15m
+=====================================
 
 > 1. OSX only
 > 2. If you have better/faster ways, let me know
@@ -19,14 +19,20 @@ You may rename the 'django-heroku-15' folder to anything you like:
 
     mv django-heroku-15 YOUR_PROJECT_NAME
 
-DATABASE PREREQ
+Database Prerequisites
 --------------------------------
 
 Just before we continue, we will install postgres.app. Grab and install from: http://postgresapp.com/
 
 
-AND VIRTUAL ENVIRONMENT
+Virtual Environment
 -----------------------
+
+If you don’t have virtualenv, you need to get it. It will allow you to have separate installations of software for each project:
+
+    pip install virtualenv
+    
+Then we start the fun:
 
     cd django-heroku-15
     virtualenv venv
@@ -41,7 +47,7 @@ And test that we have Django:
 
     python -c "import django; print(django.get_version())"
 
-DATABASE
+Database
 --------
 
     createdb YOUR_DATABASE_NAME --owner=YOUR_OSX_USERNAME
@@ -65,7 +71,7 @@ In terminal run this command to create databases and setup your admin user:
 
     python manage.py syncdb
 
-MULTIPLE HEROKU ACCOUNTS & KEYS
+Heroku, SSH Keys & More
 -------------------------------
 
 Even if you never have to have multiple heroku accounts, it is an easy way to setup and use it even for one account. So on we go:
@@ -99,6 +105,7 @@ and then set the new account as:
     ssh-keygen -t rsa
     
 When asked for name, write the full path and name as shown. then type your password or leave blank.
+
 [ END OPTIONAL ]
 
 Finally add the keys both to your OSX and heroku:
