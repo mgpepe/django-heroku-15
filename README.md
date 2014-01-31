@@ -71,8 +71,16 @@ In terminal run this command to create databases and setup your admin user:
 
     python manage.py syncdb
 
-Heroku, SSH Keys & More
--------------------------------
+Heroku Multiple Accounts & SSH Keys
+-----------------------------------
+
+[ OPTIONAL ] To create a new ssh KEY:
+
+    ssh-keygen -t rsa
+    
+When asked for name, write the full path and name as shown. then type your password or leave blank.
+
+[ END OPTIONAL ]
 
 Even if you never have to have multiple heroku accounts, it is an easy way to setup and use it even for one account. So on we go:
 
@@ -99,20 +107,23 @@ Go to your project folder with (if you did rename your project folder, use your 
 and then set the new account as:
 
     heroku accounts:set personal
-    
-[ OPTIONAL ] To create a new ssh KEY:
-
-    ssh-keygen -t rsa
-    
-When asked for name, write the full path and name as shown. then type your password or leave blank.
-
-[ END OPTIONAL ]
 
 Finally add the keys both to your OSX and heroku:
 
     heroku keys:add  ~/.ssh/YOUR_KEY_NAME.pub
     ssh-add ~/.ssh/YOUR_KEY_NAME
+
+Deploy to Heroku
+----------------
+
+Now that everything is in order, you should be able to see all your Heroku Apps:
+
+    heroku apps
     
+To create one for your project:
+
+    heroku apps:create YOUR_APP_NAME
+
 To deploy files to Heroku:
 
     git push heroku master
@@ -121,4 +132,4 @@ And then create the database and admin user with:
 
     heroku run python manage.py syncdb
     
-YOU ARE ALL SET!
+Now if you go to `YOUR_APP_NAME.herokuapp.com` to see your site. You are all set!
