@@ -28,7 +28,8 @@
 					</div>
 				</form>
 				{% else %}
-					<h3>Your new password was sent to {{email}}. Check your email and <a href="{% url 'login' %}">login</a> again.  </h3>
+					<h3>A link to reset password was sent to {{email}}. <br/><br/>Don't forget to check SPAM folder if you can't find it.  </h3>
+
 				{% endif %}
 
 		</div>

@@ -69,6 +69,20 @@
 {% endblock %}
 
 <div id="body" >
+{% if messages %}
+	<div class="container" >
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="messages">
+				    {% for message in messages %}
+				    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+				    {% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
 {% block body %}
 {% endblock body %}
 </div>

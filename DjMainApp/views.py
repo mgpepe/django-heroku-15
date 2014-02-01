@@ -1,6 +1,7 @@
 from django.shortcuts import render, render_to_response, redirect, get_object_or_404
 from django.template import RequestContext
-from DjMainApp.forms import RegistrationForm, LoginForm, ForgotPassForm, ChangePassForm, ResourceForm
+from DjMainApp.forms import RegistrationForm, LoginForm, ForgotPassForm, ChangePassForm, SetNewPassForm
+from DjMainApp.models import UserProfile
 from django.contrib.auth import REDIRECT_FIELD_NAME, authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{%  block title %} Set your new password ||{% endblock %}
+
+{% block body %}
+
+
+<div class="container" style=" ">
+	<div class="row">
+		<div class="col-md-6">
+			<h1>Set New Password</h1>
+			{% if not success %}
+				<form action="#" method="post" class="form-horizontal">
+
+					{% csrf_token %}
+					{{ form.non_field_errors }}
+
+					{{form.pass_reset_code}}
+					<div class="form-group">
+						<label for="id_email" class="col-sm-3 control-label">Password</label>
+						<div class="col-sm-9">
+							{{ form.password.errors }}
+							<input type="password" name="password" id="id_password" placeholder="Your Password" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="id_repeat_password" class="col-sm-3 control-label">Again</label>
+						<div class="col-sm-9">
+							{{ form.repassword.errors }}
+							<input type="password" name="repassword" id="id_repassword" placeholder="Repeat Password" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="" class="col-sm-3 control-label"></label>
+						<div class="col-sm-9">
+							<input type="submit" value="Change and Login" class="btn btn-primary" >
+						</div>
+					</div>
+				</form>
+				{% else %}
+					<h3>Your new password was sent to {{email}}. Check your email and <a href="{% url 'login' %}">login</a> again.  </h3>
+				{% endif %}
+
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock %}

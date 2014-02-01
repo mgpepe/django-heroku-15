@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     url(r'^login$', "DjMainApp.views.login_view", name="login"),
     url(r'^signup$', "DjMainApp.views.register", name="signup"),
     url(r'^forgot$', "DjMainApp.views.forgot_pass", name="forgotmypass"),
+    url(r'^set_new_pass/([-\w]+)/$', "pmfmain.views.set_new_pass", name="set_new_pass"),
     url(r'^logout$', "DjMainApp.views.logout_user", name="logout"),
     url(r'^dashboard$', "DjMainApp.views.home", name="home"),
     # Examples:

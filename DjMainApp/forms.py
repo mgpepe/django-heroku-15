@@ -3,8 +3,21 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 import re
 
-class ResourceForm(forms.Form):
-    link=forms.CharField(required=True, min_length=6)
+class SetNewPassForm(forms.Form):
+    password=forms.CharField(required=True, min_length=4)
+    repassword=forms.CharField(required=True, min_length=4)
+    pass_reset_code=forms.CharField(widget=forms.HiddenInput(),  min_length=4)
+
+    def clean(self):
+        cleaned_data = super(SetNewPassForm, self).clean()
+        password = cleaned_data.get("password")
+        repassword = cleaned_data.get("repassword")
+
+        if password != repassword:
+            raise forms.ValidationError("The passwords do not match")
+            
+        return cleaned_data
+
 
 class RegistrationForm(forms.Form):
     email = forms.EmailField(required=True)
