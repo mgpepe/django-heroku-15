@@ -132,6 +132,33 @@ def get_unique_username(first_name):
 	return uname[0];
 
 
+def set_new_pass(request, code=None):
+	data={}
+	if request.method == "POST":
+		form = SetNewPassForm(request.POST)
+		if form.is_valid():
+			xcode = form.cleaned_data['pass_reset_code']
+			try:
+				up = UserProfile.objects.get(pass_reset_code=xcode)
+				u = User.objects.get(pk= up.user.id)
+				u.set_password(form.cleaned_data['password'])
+				u.save()
+				usr = authenticate(username=u.email, password=form.cleaned_data['password'])
+				login(request, usr)
+				return redirect(reverse('home'))
+			except UserProfile.DoesNotExist:
+				messages.add_message(request, messages.INFO, 'Wrong Code.')
+				pass
+		else:
+			messages.add_message(request, messages.INFO, 'Not Valid.')
+	else:
+		if code is not None:
+			form = SetNewPassForm(initial={'pass_reset_code':code})
+		else:
+			form = SetNewPassForm(None)
+	data['form']=form
+	return render_to_response("DjMainApp/set_new_pass.html", data, context_instance=RequestContext(request))
+
 
 
 
