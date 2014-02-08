@@ -96,17 +96,5 @@
 		</div>
 	</div>
 {% endblock %}
-{% if user.is_authenticated %}
-<script >
-mixpanel.identify({{user.id}});
-mixpanel.people.set({
-	"$first_name":  "{{user.first_name}}",
-	"$last_name":  "{{user.last_name}}",
-	"$email": "{{user.email}}",
-	"$username": "{{user.username}}",
-	"$created": "{{user.date_joined}}",
-});
-</script>
-{% endif %}
 </body>
 </html>
