@@ -30,7 +30,7 @@ Virtual Environment
 
 If you don’t have virtualenv, you need to get it. It will allow you to have separate installations of software for each project:
 
-    pip install virtualenv
+    sudo pip install virtualenv
     
 Then we start the fun:
 
