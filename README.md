@@ -37,11 +37,18 @@ Then we start the fun:
     cd django-heroku-15
     virtualenv venv
     source venv/bin/activate
-    PATH=/Applications/Postgres.app/Contents/MacOS/bin/:$PATH
+    
+Depending on the version and your path to the `bin` folder:
+
+    PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin/:$PATH
 
 Now install all we need:
 
     pip install -r requirements.txt
+    
+Or on Mavericks you seem to need to do:
+
+    sudo ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future pip install -r requirements.txt 
 
 And test that we have Django:
 
