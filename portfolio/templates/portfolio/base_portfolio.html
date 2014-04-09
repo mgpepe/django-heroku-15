@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block large_header %}
+<div class="header_text">
+	<br/><br/>
+	<h1>In our portfolio you can view examples of <span class="intense">brilliant design</span>, <span class="intense">planned functionality</span>, and  <span class="intense">professional implementation</span>.</h1>
+		<br/><br/><br/>
+
+</div>
+<div id = 'header_vizia' class="portfolio">
+</div>
+{% endblock large_header %}
+
+{% block content %}<br/><br/>
+<h1>Portfolio Highlights</h1>
+<div id="portfolio_large_boxes" class="container">
+	{% for h3 in highlights %}
+	{% if loop.index != 1 %} 
+		{% endif %}
+		<div class="{{blah}} container">
+		{% for h in h3 %}
+	<a href="/portfolio/{{h.id}}/">
+		<div class="boks span-12 {% if forloop.last %}last{% endif %}" >
+			<h2>{{ h.client}} - {{ h }}</h2>
+			<div class="screenshot">
+				<div class="cssBackground" style="background: url('/media/{{h.default_medium.file}}') no-repeat 0 0 ;"></div>
+			</div>
+		</div>
+	</a>
+		{% endfor %}
+	</div>
+	{% endfor %}
+</div>
+	<h1>Other projects</h1>
+	{% for o4 in other %}
+	<div class="container">
+		{% for o in o4 %}
+		<a href="/portfolio/{{o.id}}/">
+			<div id="portfolio_small_boxes"><div class="boks span-6{% if loop.index == 4 %} last {% endif %}">
+			<div class="screenshot">
+				<div class="cssBackground" style="background: url('/media/{{o.default_small.file}}') no-repeat 0 0 ;"></div>
+			</div>
+		</div>
+	</div>
+</a>
+	{% endfor %}
+</div>
+	{% endfor %}
+
+{% endblock content %}
