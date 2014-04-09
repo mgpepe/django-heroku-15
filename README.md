@@ -1,4 +1,4 @@
-Blank Django Project on Heroku in 15m
+Blank Django Project on Heroku in 15min
 =====================================
 
 > 1. OSX only
