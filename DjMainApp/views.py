@@ -14,6 +14,7 @@ from django.db.utils import IntegrityError
 from django.http import HttpResponse
 import simplejson
 from datetime import datetime
+from django.contrib import messages
 
 # Create your views here.
 def splash(request):
@@ -95,10 +96,11 @@ def forgot_pass(request):
 	data['html_style']='dark'
 	if request.method == "POST" and form.is_valid():
 		user = get_object_or_404(User, email=form.cleaned_data["email"])
-		new_pass=get_random_string(6)
-		user.set_password(new_pass)
-		user.save()
-		msg=EmailMessage(from_email=u"DjangoHeroku <no-reply@djangoheroku.com>", to=[user.email], subject=u"New Password", body=u"Your new password is {0}".format(new_pass))
+		pass_reset_code=get_random_string(6)
+		user.profile.pass_reset_code =pass_reset_code
+		user.profile.save()
+		link = request.get_host() + reverse('set_new_pass', args={pass_reset_code})
+		msg=EmailMessage(from_email=u"DjangoHeroku <no-reply@djangoheroku.com>", to=[user.email], subject=u"New Password Link", body=u"To reset your password please go to: {0}".format(link))
 		msg.send()
 		data["new_pass_given"]=True
 		data["success"]=True
@@ -138,16 +140,19 @@ def set_new_pass(request, code=None):
 		form = SetNewPassForm(request.POST)
 		if form.is_valid():
 			xcode = form.cleaned_data['pass_reset_code']
+			uid = request.user.id
 			try:
 				up = UserProfile.objects.get(pass_reset_code=xcode)
 				u = User.objects.get(pk= up.user.id)
 				u.set_password(form.cleaned_data['password'])
 				u.save()
+				up.pass_reset_code=None
+				up.save()
 				usr = authenticate(username=u.email, password=form.cleaned_data['password'])
 				login(request, usr)
 				return redirect(reverse('home'))
 			except UserProfile.DoesNotExist:
-				messages.add_message(request, messages.INFO, 'Wrong Code.')
+				messages.add_message(request, messages.INFO, 'Something is wrong. 574583')
 				pass
 		else:
 			messages.add_message(request, messages.INFO, 'Not Valid.')

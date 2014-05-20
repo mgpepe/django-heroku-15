@@ -92,6 +92,7 @@ STATIC_URL = '/static/'
 
 AUTHENTICATION_BACKENDS = ('DjangoHerokuIn15.backends.EmailAuthBackend',)
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # HEROKU
 ###########################
