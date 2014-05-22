@@ -62,8 +62,8 @@ WSGI_APPLICATION = 'DjangoHerokuIn15.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_heroku_in_15',
-        'USER': 'petarpetrov',
+        'NAME': 'pp',
+        'USER': 'pp',
         'PASSWORD': '', #might be empty string ''
         'HOST': '127.0.0.1',
         # 'PORT': '5432',
