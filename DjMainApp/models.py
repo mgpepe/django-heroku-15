@@ -2,6 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
+
+
+"""
+# Uncomment those lines after you have synced your database to get user profile functionality
+##############################################################
+
 # Create your models here.
 class UserProfile(models.Model):
 	user = models.OneToOneField(User, related_name="profile")
@@ -13,3 +19,4 @@ def create_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
 
 post_save.connect(create_user_profile, sender=User)
+"""
