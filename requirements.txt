@@ -1,4 +1,4 @@
-Django==1.7.1
+Django==1.7.4
 Pillow==2.4.0
 boto==2.19.0
 dj-database-url==0.3.0
