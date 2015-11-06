@@ -76,7 +76,7 @@ Change the `SECRET_KEY` variable while you are there.
 
 In terminal run this command to create databases and setup your admin user:
 
-    python manage.py syncdb
+    python manage.py migrate
 
 Heroku Multiple Accounts & SSH Keys
 -----------------------------------
