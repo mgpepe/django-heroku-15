@@ -22,8 +22,22 @@ SECRET_KEY = '7qa^asdfsdgfyy7sdaufiT^&UIhfdsi^^&1.!2^^1)0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
 
 ALLOWED_HOSTS = []
 
@@ -61,7 +75,7 @@ WSGI_APPLICATION = 'DjangoHerokuIn15.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pp',
+        'NAME': 'franklin',
         'USER': 'pp',
         'PASSWORD': '', #might be empty string ''
         'HOST': '127.0.0.1',
